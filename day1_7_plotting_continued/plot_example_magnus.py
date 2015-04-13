@@ -34,7 +34,11 @@ u.mm.find_equivalent_units()
 # <codecell>
 
 distance = 1.5E14 * u.mm
-distance.to(u.solRad)
+distance.to(u.R_sun)
+
+# <codecell>
+
+distance.value
 
 # <markdowncell>
 
