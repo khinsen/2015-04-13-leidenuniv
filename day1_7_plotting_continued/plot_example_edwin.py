@@ -1,5 +1,5 @@
 import numpy
-from matplotlib import pyplot
+from matplotlib import pyplot, animation
 from matplotlib import gridspec
 
 def data(num=50):
@@ -62,9 +62,24 @@ def advanced_subplots():
 
     pyplot.savefig("myplot5.pdf")
 
+def movie():
+    x, y = data(200)
+
+    fig = pyplot.figure(figsize=(6,6))
+    pyplot.plot(x, y)
+    artists = []
+    for xi, yi in zip(x, y):
+        points = pyplot.scatter(xi, yi, marker='o')
+        artists.append([points])
+    movie = animation.ArtistAnimation(fig, artists, interval=50,
+                                      repeat_delay=3000, blit=True)
+    writer = animation.writers['ffmpeg'](fps=15, metadata=dict(artist='Me'), bitrate=1800)
+    movie.save("mymovie.avi", writer=writer, dpi=300)
+
 if __name__ == "__main__":
     # plot_and_save()
     # plot_many_points()
     # simple_subplots()
     # adjust_subplots()
     # advanced_subplots()
+    # movie()
