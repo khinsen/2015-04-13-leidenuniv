@@ -17,10 +17,11 @@ def plot_and_save():
 
 def plot_many_points():
     x, y = data(100000)
+    y += numpy.random.normal(size=y.size)
 
     pyplot.figure(figsize=(6,6))
-    pyplot.plot(x, y, marker="o") #, rasterized=True)
-    pyplot.savefig("myplot2.pdf", dpi=300)
+    pyplot.plot(x, y, marker="o")
+    pyplot.savefig("myplot2.pdf")
 
     pyplot.figure(figsize=(6,6))
     pyplot.plot(x, y, marker="o", rasterized=True)
@@ -62,8 +63,8 @@ def advanced_subplots():
     pyplot.savefig("myplot5.pdf")
 
 if __name__ == "__main__":
-    plot_and_save()
-    plot_many_points()
-    simple_subplots()
-    adjust_subplots()
-    advanced_subplots()
+    # plot_and_save()
+    # plot_many_points()
+    # simple_subplots()
+    # adjust_subplots()
+    # advanced_subplots()
