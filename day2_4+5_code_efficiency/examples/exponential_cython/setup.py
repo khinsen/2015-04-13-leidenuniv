@@ -10,6 +10,8 @@ setup (name = "Exponential",
 
        ext_modules = [Extension('exp_cython',
                                 ['exp_cython.pyx']),
+                      Extension('exp_cython_cdivision',
+                                ['exp_cython_cdivision.pyx']),
                       Extension('exp_python_annotated',
                                 ['exp_python_annotated.py'])],
 
